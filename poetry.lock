@@ -1,13 +1,13 @@
 [[package]]
 name = "boto3"
-version = "1.20.46"
+version = "1.20.47"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.23.46,<1.24.0"
+botocore = ">=1.23.47,<1.24.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -16,7 +16,7 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.23.46"
+version = "1.23.47"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -87,16 +87,16 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8168b4bf82ba9070039cc63729394739f83212be7cb7e3ecd7e14aaafb770431"
+content-hash = "a5938dfef1018180d4bd43cd50620e1ccc05358e755483b8136cd9f65524246e"
 
 [metadata.files]
 boto3 = [
-    {file = "boto3-1.20.46-py3-none-any.whl", hash = "sha256:a2ffce001160d7e7c72a90c3084700d50eb64ea4a3aae8afe21566971d1fd611"},
-    {file = "boto3-1.20.46.tar.gz", hash = "sha256:d7effba509d7298ef49316ba2da7a2ea115f2a7ff691f875f6354666663cf386"},
+    {file = "boto3-1.20.47-py3-none-any.whl", hash = "sha256:1903e4462b08f7696a8d0977361fe9e35e7a50d9e70d7abd72a3a17012741938"},
+    {file = "boto3-1.20.47.tar.gz", hash = "sha256:34e5ae33ef65b1c4e2e197009e88df5dc217386699939ae897d7fcdb5a6ff295"},
 ]
 botocore = [
-    {file = "botocore-1.23.46-py3-none-any.whl", hash = "sha256:354bce55e5adc8e2fe106acfd455ce448f9b920d7b697d06faa8cf200fd6566b"},
-    {file = "botocore-1.23.46.tar.gz", hash = "sha256:38dd4564839f531725b667db360ba7df2125ceb3752b0ba12759c3e918015b95"},
+    {file = "botocore-1.23.47-py3-none-any.whl", hash = "sha256:82da38e309bd6fd6303394e6e9d1ea50626746f2911e3fec996f9046c5d85085"},
+    {file = "botocore-1.23.47.tar.gz", hash = "sha256:a89b1be0a7f235533d8279d90b0b15dc2130d0552a9f7654ba302b564ab5688a"},
 ]
 jmespath = [
     {file = "jmespath-0.10.0-py2.py3-none-any.whl", hash = "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"},
