@@ -9,3 +9,11 @@ venv
 .DS_Store
 dist
 build
+**/__pycache__/*
+venv/
+.vscode/
+config.py
+*.egg-info/
+dist/
+.env
+build/
