@@ -1,77 +1,77 @@
-#!/usr/bin/python
+# #!/usr/bin/python
 
-"""
-This is the main entry point for AWS CloudWatch Logs TA
-"""
-from __future__ import absolute_import
-import time
-import traceback
+# """
+# This is the main entry point for AWS CloudWatch Logs TA
+# """
+# from __future__ import absolute_import
+# import time
+# import traceback
 
-import splunktalib.data_loader_mgr as dlm
+# import splunktalib.data_loader_mgr as dlm #type: ignore
 
-from splunksdc import logging
+# from splunksdc import logging #type: ignore
 
-import splunk_ta_aws.common.ta_aws_consts as tac
-import splunk_ta_aws.common.ta_aws_common as tacommon
-from . import aws_cloudwatch_logs_consts as aclc
-from . import aws_cloudwatch_logs_data_loader as acldl
-from . import aws_cloudwatch_logs_conf as acwc
-
-
-# logger should be init at the very begging of everything
-logger = logging.get_module_logger()
+# import splunk_ta_aws.common.ta_aws_consts as tac #type: ignore
+# import splunk_ta_aws.common.ta_aws_common as tacommon #type: ignore
+# from . import aws_cloudwatch_logs_consts as aclc #type: ignore
+# from . import aws_cloudwatch_logs_data_loader as acldl #type: ignore
+# from . import aws_cloudwatch_logs_conf as acwc #type: ignore
 
 
-def print_scheme():
-    """ print the input info """
-    title = "AWS CloudWatch Log Groups Describer"
-    description = "Describe AWS CloudWatch Logs Groups."
-    tacommon.print_scheme(title, description)
+# # logger should be init at the very begging of everything
+# logger = logging.get_module_logger()
 
 
-def _do_run():
-    """
-    Main loop. Run this TA for ever
-    """
-
-    meta_configs, _, tasks = tacommon.get_configs(
-        acwc.AWSCloudWatchLogsConf, "aws_cloudwatch_log_groupss", logger)
-    if not tasks:
-        logger.info("No data input has been configured, exiting...")
-        return
-
-    meta_configs[tac.log_file] = aclc.cloudwatch_logs_log
-    loader_mgr = dlm.create_data_loader_mgr(meta_configs)
-    tacommon.setup_signal_handler(loader_mgr, logger)
-    conf_change_handler = tacommon.get_file_change_handler(loader_mgr, logger)
-    conf_monitor = acwc.create_conf_monitor(conf_change_handler)
-    loader_mgr.add_timer(conf_monitor, time.time(), 10)
-
-    jobs = [acldl.CloudWatchLogsDataLoader(task) for task in tasks]
-    loader_mgr.run(jobs)
+# def print_scheme():
+#     """ print the input info """
+#     title = "AWS CloudWatch Log Groups Describer"
+#     description = "Describe AWS CloudWatch Logs Groups."
+#     tacommon.print_scheme(title, description)
 
 
-def run():
-    """ main task """
-    logger.info("Start aws_cloudwatch_log_groups")
-    try:
-        _do_run()
-    except Exception:
-        logger.error("Failed to collect cloudwatch log group data, error=%s",
-                     traceback.format_exc())
-    logger.info("End aws_cloudwatch_log_groups")
+# def _do_run():
+#     """
+#     Main loop. Run this TA for ever
+#     """
+
+#     meta_configs, _, tasks = tacommon.get_configs(
+#         acwc.AWSCloudWatchLogsConf, "aws_cloudwatch_log_groupss", logger)
+#     if not tasks:
+#         logger.info("No data input has been configured, exiting...")
+#         return
+
+#     meta_configs[tac.log_file] = aclc.cloudwatch_logs_log
+#     loader_mgr = dlm.create_data_loader_mgr(meta_configs)
+#     tacommon.setup_signal_handler(loader_mgr, logger)
+#     conf_change_handler = tacommon.get_file_change_handler(loader_mgr, logger)
+#     conf_monitor = acwc.create_conf_monitor(conf_change_handler)
+#     loader_mgr.add_timer(conf_monitor, time.time(), 10)
+
+#     jobs = [acldl.CloudWatchLogsDataLoader(task) for task in tasks]
+#     loader_mgr.run(jobs)
 
 
-def main():
-    """
-    Main entry point
-    """
-    logging.setup_root_logger(app_name="splunk_ta_aws", modular_name='cloudwatch_logs')
-    tacommon.main(print_scheme, run)
+# def run():
+#     """ main task """
+#     logger.info("Start aws_cloudwatch_log_groups")
+#     try:
+#         _do_run()
+#     except Exception:
+#         logger.error("Failed to collect cloudwatch log group data, error=%s",
+#                      traceback.format_exc())
+#     logger.info("End aws_cloudwatch_log_groups")
 
 
-if __name__ == "__main__":
-    main()
+# def main():
+#     """
+#     Main entry point
+#     """
+#     logging.setup_root_logger(app_name="splunk_ta_aws", modular_name='cloudwatch_logs')
+#     tacommon.main(print_scheme, run)
 
-# if __name__ == '__main__':
-#    run_module('splunk_ta_aws.modinputs.cloudwatch_logs')
+
+# if __name__ == "__main__":
+#     main()
+
+# # if __name__ == '__main__':
+# #    run_module('splunk_ta_aws.modinputs.cloudwatch_logs')

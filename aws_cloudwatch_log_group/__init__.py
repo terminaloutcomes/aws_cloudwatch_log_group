@@ -1,10 +1,16 @@
 """ blah """
 
-from typing import List
+from typing import Any, Dict, List
+
+try:
+    from mypy_boto3_logs.type_defs import LogGroupTypeDef
+except ImportError:
+    class LogGroupTypeDefDict(Dict[Any,Any]):
+        """ overload for when you're in prod but don't have the stubs """
 
 import boto3
 
-def get_cloudwatch_log_groups() -> List[str]:
+def get_cloudwatch_log_groups() -> List[LogGroupTypeDef]:
     """ gets the data """
     client = boto3.client('logs')
 
@@ -14,7 +20,7 @@ def get_cloudwatch_log_groups() -> List[str]:
         # limit=123
     )
 
-    results: List[str] = []
+    results: List[LogGroupTypeDef] = []
 
     if not "logGroups" in response:
         return results
