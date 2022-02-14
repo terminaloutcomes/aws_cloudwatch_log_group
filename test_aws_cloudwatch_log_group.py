@@ -1,5 +1,8 @@
-from aws_cloudwatch_log_group import example_function
+""" tests that it actually works """
+from aws_cloudwatch_log_group import get_cloudwatch_log_groups
 
 
-def test_example_function():
-    assert example_function() == 2
+def test_get_groups():
+    """ tests that it works """
+    results = get_cloudwatch_log_groups()
+    assert results

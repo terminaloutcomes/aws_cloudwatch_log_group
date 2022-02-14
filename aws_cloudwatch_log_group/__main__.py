@@ -1,36 +1,12 @@
 """ simple module thing """
 
-from typing import Any, Dict
+from . import get_cloudwatch_log_groups
 
-import boto3
-
-
-def print_groups(response: Dict[str, Any]):
-    """ output """
-
-    if response is None or "logGroups" not in response:
-        return False
-
-    for group in response["logGroups"]:
-        print(group)
-
-
-def main():
+def main() -> None:
     """ main func """
-    client = boto3.client('logs')
-
-    response = client.describe_log_groups(
-        # logGroupNamePrefix='',
-        # nextToken='string',
-        # limit=123
-    )
-    if not print_groups(response):
-        return False
-
-    while "nextToken" in response:
-        response = client.describe_log_groups(nextToken=response["nextToken"])
-        if not print_groups(response):
-            return False
+    results = get_cloudwatch_log_groups()
+    for result in results:
+        print(result)
 
 if __name__ == "__main__":
     main()
