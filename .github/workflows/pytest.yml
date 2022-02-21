@@ -1,6 +1,10 @@
 name: Run pytest
 
-"on": [ 'push', 'pull_request']
+"on":
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   pytest:
@@ -21,7 +25,7 @@ jobs:
         run: |
           mkdir ~/.aws
           echo '[default]' > ~/.aws/config
-          echo "region=${AWS_DEFAULT_REGION}" >> ~/.aws/config
+          echo "region=us-east-1" >> ~/.aws/config
           python --version
           python -m pip install --quiet --no-cache-dir --upgrade poetry
           poetry install
