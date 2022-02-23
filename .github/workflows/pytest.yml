@@ -25,8 +25,9 @@ jobs:
         run: |
           mkdir ~/.aws
           echo '[default]' > ~/.aws/config
-          echo "region=us-east-1" >> ~/.aws/config
+          echo 'region=us-east-1' >> ~/.aws/config
+          cat ~/.aws/config
           python --version
           python -m pip install --quiet --no-cache-dir --upgrade poetry
-          poetry install
+          poetry install -q
           poetry run python -m pytest -v -s

@@ -9,10 +9,13 @@ from aws_cloudwatch_log_group import get_cloudwatch_log_groups
 def test_get_groups():
     """ tests that it works """
     failed = False
+    results = None
     try:
         results = get_cloudwatch_log_groups()
     except ValueError as error_message:
         error = str(error_message)
+        print("Got valueerror")
+        print(dir(error))
         print(error)
         failed = True
     except botocore.exceptions.NoRegionError as no_region_error:
