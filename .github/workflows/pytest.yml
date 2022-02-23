@@ -4,7 +4,6 @@ name: Run pytest
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   pytest:
@@ -23,10 +22,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
-          mkdir ~/.aws
-          echo '[default]' > ~/.aws/config
-          echo 'region=us-east-1' >> ~/.aws/config
-          cat ~/.aws/config
           python --version
           python -m pip install --quiet --no-cache-dir --upgrade poetry
           poetry install -q
