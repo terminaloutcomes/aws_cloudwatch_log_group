@@ -12,8 +12,7 @@ def test_get_groups():
         results = get_cloudwatch_log_groups()
     except ValueError as error_message:
         error = str(error_message)
-        for characters in error[::20]:
-            print(characters)
+        print(error)
         raise pytest.fail()
     except botocore.exceptions.NoRegionError as no_region_error:
         print("You didn't specify a region!")
