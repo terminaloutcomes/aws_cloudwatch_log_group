@@ -15,8 +15,8 @@ def test_get_groups():
     except ValueError as error_message:
         error = str(error_message)
         print("Got valueerror")
-        print(dir(error))
-        print(error)
+        # print(dir(error))
+        print(str(error).replace("-", "🍆"))
         failed = True
     except botocore.exceptions.NoRegionError as no_region_error:
         print("You didn't specify a region!")
