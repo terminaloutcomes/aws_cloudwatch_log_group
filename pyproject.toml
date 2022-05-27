@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-boto3 = "^1.23.5"
+boto3 = "^1.23.9"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.13.9"
