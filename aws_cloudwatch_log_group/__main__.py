@@ -1,5 +1,6 @@
 """ simple module thing """
 
+from json import dumps as json_dumps
 import logging
 import sys
 
@@ -24,7 +25,7 @@ def main() -> None:
         sys.exit(1)
 
     for result in results:
-        print(result)
+        print(json_dumps(result, default=str))
 
 if __name__ == "__main__":
     main()
