@@ -19,8 +19,7 @@ def main() -> None:
     except botocore.exceptions.NoCredentialsError:
         log.error("You didn't specify AWS credentials! See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#guide-configuration for details.")
         sys.exit(1)
-    #pylint: disable=broad-except
-    except Exception as error_message:
+    except Exception as error_message: # pylint: disable=broad-except
         log.error(error_message)
         sys.exit(1)
 
