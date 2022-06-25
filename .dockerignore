@@ -1,0 +1,8 @@
+.venv
+.github
+.mypy_cache
+.pytest_cache
+dist/
+tests/
+.dependabotbot.json
+.envrc
