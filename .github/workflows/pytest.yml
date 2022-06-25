@@ -4,6 +4,7 @@ name: Run pytest
   push:
     branches:
       - main
+  pull:
 
 jobs:
   pytest:

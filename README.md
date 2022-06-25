@@ -8,11 +8,13 @@ Pulling AWS CloudWatch Log Groups
 
 Install this library using `pip`:
 
-    $ python -m pip install aws-cloudwatch-log-group
+    $ python -m pip install git+https://github.com/terminaloutcomes/aws_cloudwatch_log_group
 
 ## Usage
 
-Usage instructions go here.
+```shell
+aws-cloudwatch-log-groups
+```
 
 ## Development
 
