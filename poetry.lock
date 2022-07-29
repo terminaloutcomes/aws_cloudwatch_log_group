@@ -522,11 +522,11 @@ reports = ["lxml"]
 
 [[package]]
 name = "mypy-boto3-logs"
-version = "1.24.0"
-description = "Type annotations for boto3.CloudWatchLogs 1.24.0 service generated with mypy-boto3-builder 7.6.1"
+version = "1.24.36.post1"
+description = "Type annotations for boto3.CloudWatchLogs 1.24.36 service generated with mypy-boto3-builder 7.10.0"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 typing-extensions = ">=4.1.0"
@@ -734,7 +734,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f12600ed0b0430c2de090fe29857a4b4b863ed0499195a98e63d5e682a10e726"
+content-hash = "d773e9377d4a3103a4627a122408e8ea352c427a82d4e9021ba946d132d8b4ed"
 
 [metadata.files]
 astroid = [
@@ -882,8 +882,8 @@ mypy = [
     {file = "mypy-0.971.tar.gz", hash = "sha256:40b0f21484238269ae6a57200c807d80debc6459d444c0489a102d7c6a75fa56"},
 ]
 mypy-boto3-logs = [
-    {file = "mypy-boto3-logs-1.24.0.tar.gz", hash = "sha256:059cb16fd9b141edfe4e699daeed8b1d76c4bb4487fb0a5cd2e87ae6f922147a"},
-    {file = "mypy_boto3_logs-1.24.0-py3-none-any.whl", hash = "sha256:7e37e51209e29d65e9203219dead4130817587cb8a8a432e3903dafcbb016da7"},
+    {file = "mypy-boto3-logs-1.24.36.post1.tar.gz", hash = "sha256:8b00c2d5328e72023b1d1acd65e7cea7854f07827d23ce21c78391ca74271290"},
+    {file = "mypy_boto3_logs-1.24.36.post1-py3-none-any.whl", hash = "sha256:f96257ec06099bfda1ce5f35b410e7fb93fb601bc312e8d7a09b13adaefd23f0"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
