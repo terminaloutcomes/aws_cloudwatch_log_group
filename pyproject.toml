@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aws-cloudwatch-log-group"
-version = "0.0.2"
+version = "0.0.3"
 description = "Pulling AWS CloudWatch Log Groups"
 authors = ["James Hogkinson <james@terminaloutcomes.com>"]
 license = "MIT"
