@@ -14,7 +14,7 @@ boto3 = "^1.24.69"
 mypy-boto3-logs = "^1.24.36"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.15.0"
+pylint = "^2.15.2"
 mypy = "^0.971"
 black = "^22.8.0"
 pytest = "^7.1.3"
