@@ -3,7 +3,7 @@
 # from json import dumps as json_dumps
 import logging
 import sys
-from typing import List, Optional
+from typing import Any, List, Optional
 
 import boto3
 
@@ -12,7 +12,7 @@ import click
 
 from aws_cloudwatch_log_group import get_cloudwatch_log_groups
 
-def get_logs(log_client, log_name: str) -> None:
+def get_logs(log_client: Any, log_name: str) -> None:
     """ get the logs and print them """
     print(log_name)
 
