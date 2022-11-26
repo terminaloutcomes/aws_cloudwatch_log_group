@@ -13,7 +13,7 @@ Install this library using `pip`:
 ## Usage
 
 ```shell
-aws-cloudwatch-log-groups
+aws-cloudwatch-log-group
 ```
 
 ## Development

@@ -19,10 +19,10 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.extras]
-dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six", "sphinx", "sphinx-notfound-page", "zope.interface"]
-docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
-tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six", "zope.interface"]
-tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six"]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "cloudpickle"]
 
 [[package]]
 name = "black"
@@ -118,6 +118,7 @@ chime-sdk-meetings = ["mypy-boto3-chime-sdk-meetings (>=1.24.0,<1.25.0)"]
 chime-sdk-messaging = ["mypy-boto3-chime-sdk-messaging (>=1.24.0,<1.25.0)"]
 cloud9 = ["mypy-boto3-cloud9 (>=1.24.0,<1.25.0)"]
 cloudcontrol = ["mypy-boto3-cloudcontrol (>=1.24.0,<1.25.0)"]
+elasticache = ["mypy-boto3-elasticache (>=1.24.0,<1.25.0)"]
 clouddirectory = ["mypy-boto3-clouddirectory (>=1.24.0,<1.25.0)"]
 cloudformation = ["mypy-boto3-cloudformation (>=1.24.0,<1.25.0)"]
 cloudfront = ["mypy-boto3-cloudfront (>=1.24.0,<1.25.0)"]
@@ -178,7 +179,6 @@ ecs = ["mypy-boto3-ecs (>=1.24.0,<1.25.0)"]
 efs = ["mypy-boto3-efs (>=1.24.0,<1.25.0)"]
 eks = ["mypy-boto3-eks (>=1.24.0,<1.25.0)"]
 elastic-inference = ["mypy-boto3-elastic-inference (>=1.24.0,<1.25.0)"]
-elasticache = ["mypy-boto3-elasticache (>=1.24.0,<1.25.0)"]
 elasticbeanstalk = ["mypy-boto3-elasticbeanstalk (>=1.24.0,<1.25.0)"]
 elastictranscoder = ["mypy-boto3-elastictranscoder (>=1.24.0,<1.25.0)"]
 elb = ["mypy-boto3-elb (>=1.24.0,<1.25.0)"]
@@ -427,7 +427,7 @@ typing-extensions = ">=4.1.0"
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -438,7 +438,7 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 name = "colorama"
 version = "0.4.5"
 description = "Cross-platform colored terminal text."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -470,10 +470,10 @@ optional = false
 python-versions = ">=3.6.1,<4.0"
 
 [package.extras]
+pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+requirements_deprecated_finder = ["pipreqs", "pip-api"]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
-pipfile-deprecated-finder = ["pipreqs", "requirementslib"]
 plugins = ["setuptools"]
-requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "jmespath"
@@ -564,8 +564,8 @@ optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx (>=4)", "sphinx-autodoc-typehints (>=1.12)"]
-test = ["appdirs (==1.4.4)", "pytest (>=6)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)"]
+docs = ["furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx-autodoc-typehints (>=1.12)", "sphinx (>=4)"]
+test = ["appdirs (==1.4.4)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)", "pytest (>=6)"]
 
 [[package]]
 name = "pluggy"
@@ -609,7 +609,7 @@ optional = false
 python-versions = ">=3.6.8"
 
 [package.extras]
-diagrams = ["jinja2", "railroad-diagrams"]
+diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "pytest"
@@ -695,8 +695,8 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
-brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
-secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)"]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
@@ -709,8 +709,8 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "~3.11"
-content-hash = "fe1e445b52246e42c9d7f230d647908b9fdf02c2e2f0b40b0393e74153c8acd4"
+python-versions = "^3.9"
+content-hash = "22e4a0db43f0805a65ca8eee3c392938fd22a3301f30515874def65c69c8a3d8"
 
 [metadata.files]
 astroid = [
@@ -745,16 +745,16 @@ black = [
     {file = "black-22.10.0.tar.gz", hash = "sha256:f513588da599943e0cde4e32cc9879e825d58720d6557062d1098c5ad80080e1"},
 ]
 boto3 = [
-    {file = "boto3-1.26.16-py3-none-any.whl", hash = "sha256:4f493a2aed71cee93e626de4f67ce58dd82c0473480a0fc45b131715cd8f4f30"},
-    {file = "boto3-1.26.16.tar.gz", hash = "sha256:31c0adf71e4bd19a5428580bb229d7ea3b5795eecaa0847a85385df00c026116"},
+    {file = "boto3-1.26.13-py3-none-any.whl", hash = "sha256:a8ad13a23745b6d4a56d5bdde53a7a80cd7b40016cd411b9a94e6bbfb2ca5dd2"},
+    {file = "boto3-1.26.13.tar.gz", hash = "sha256:853cf4b2136c4deec4e01a17b89126377bfca30223535795d879ca65af4c4a69"},
 ]
 boto3-stubs = [
     {file = "boto3-stubs-1.24.96.tar.gz", hash = "sha256:8fd7c48fcc54c75a2579565275fee2ee763cb9f862f0edfce896104d0aa9d954"},
     {file = "boto3_stubs-1.24.96-py3-none-any.whl", hash = "sha256:2a4a24d4a0fdc47d4dc2dcf1c245d378ba79b570be9a8a7dd30217ddf774ac9a"},
 ]
 botocore = [
-    {file = "botocore-1.29.16-py3-none-any.whl", hash = "sha256:271b599e6cfe214405ed50d41cd967add1d5d469383dd81ff583bc818b47f59b"},
-    {file = "botocore-1.29.16.tar.gz", hash = "sha256:8cfcc10f2f1751608c3cec694f2d6b5e16ebcd50d0a104f9914d5616227c62e9"},
+    {file = "botocore-1.29.13-py3-none-any.whl", hash = "sha256:9c73a180fad9a7da7797530ced3b5069872bff915b1ae9fa11fc1ed79b584c8e"},
+    {file = "botocore-1.29.13.tar.gz", hash = "sha256:9d39db398f472c0aa97098870c8c4cf12636b2667a18e694fea5fae046af907e"},
 ]
 botocore-stubs = [
     {file = "botocore-stubs-1.27.26.tar.gz", hash = "sha256:9df2e04d755c794d2ad5ec4bc6838f7d7c28d20e419e13c4e2dd2c39ce925fa8"},
@@ -771,6 +771,10 @@ colorama = [
 dill = [
     {file = "dill-0.3.5.1-py2.py3-none-any.whl", hash = "sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302"},
     {file = "dill-0.3.5.1.tar.gz", hash = "sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86"},
+]
+exceptiongroup = [
+    {file = "exceptiongroup-1.0.0-py3-none-any.whl", hash = "sha256:2ac84b496be68464a2da60da518af3785fff8b7ec0d090a581604bc870bdee41"},
+    {file = "exceptiongroup-1.0.0.tar.gz", hash = "sha256:affbabf13fb6e98988c38d9c5650e701569fe3c1de3233cfb61c5f33774690ad"},
 ]
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
@@ -884,8 +888,8 @@ pluggy = [
     {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
 ]
 pylint = [
-    {file = "pylint-2.15.6-py3-none-any.whl", hash = "sha256:15060cc22ed6830a4049cf40bc24977744df2e554d38da1b2657591de5bcd052"},
-    {file = "pylint-2.15.6.tar.gz", hash = "sha256:25b13ddcf5af7d112cf96935e21806c1da60e676f952efb650130f2a4483421c"},
+    {file = "pylint-2.15.5-py3-none-any.whl", hash = "sha256:c2108037eb074334d9e874dc3c783752cc03d0796c88c9a9af282d0f161a1004"},
+    {file = "pylint-2.15.5.tar.gz", hash = "sha256:3b120505e5af1d06a5ad76b55d8660d44bf0f2fc3c59c2bdd94e39188ee3a4df"},
 ]
 pyparsing = [
     {file = "pyparsing-3.0.9-py3-none-any.whl", hash = "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"},
@@ -906,6 +910,10 @@ s3transfer = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+tomli = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
 tomlkit = [
     {file = "tomlkit-0.11.1-py3-none-any.whl", hash = "sha256:1c5bebdf19d5051e2e1de6cf70adfc5948d47221f097fcff7a3ffc91e953eaf5"},
