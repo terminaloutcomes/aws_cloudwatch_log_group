@@ -10,7 +10,7 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-boto3 = "^1.26.16"
+boto3 = "^1.26.22"
 mypy-boto3-logs = "^1.26.17"
 click = "^8.1.3"
 
