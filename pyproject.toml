@@ -12,7 +12,7 @@ include = [
 python = "^3.9"
 boto3 = "^1.28.29"
 mypy-boto3-logs = "^1.26.149"
-click = "^8.1.6"
+click = "^8.1.7"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.17.5"
